@@ -154,11 +154,11 @@ li > * {
 }
 
 /* Edit Task */
-.editMode .task--input--styles {
+.edit-mode .task--input--styles {
   display: inline-block;
   width: 224px;
 }
 
-.editMode .task--label--hidden {
+.edit-mode .task--label--hidden {
   display: none;
 }
