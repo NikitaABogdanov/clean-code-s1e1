@@ -10,7 +10,7 @@
 
 var taskInput=document.getElementById("new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
+var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incomplete-tasks
 var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 let label=document.createElement("label");
 
@@ -24,7 +24,7 @@ var createNewTaskElement=function(taskString){
     checkBox.classList.add("checkbox");
     //label
     label=document.createElement("label");//label
-    label.classList.add("task", "task--hidden");
+    label.classList.add("task", "task--label--hidden");
     //input (text)
     var editInput=document.createElement("input");//text
     //button.edit
@@ -33,13 +33,13 @@ var createNewTaskElement=function(taskString){
     //button.delete
     var deleteButton=document.createElement("button");//delete button
     var deleteButtonImg=document.createElement("img");//delete button image
-    deleteButtonImg.classList.add("delete__arrow");
+    deleteButtonImg.classList.add("btn__arrow");
     label.innerText=taskString;
 
     //Each elements, needs appending
     checkBox.type="checkbox";
     editInput.type="text";
-    editInput.classList.add("task", "text-input","list-text-input");
+    editInput.classList.add("task", "task--input--styles","task--input--list--styles");
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
     editButton.classList.add("btn", "edit");
@@ -124,7 +124,7 @@ var taskCompleted=function(){
     var listItem=this.parentNode;
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
-    label.classList.add("completed-task");
+    label.classList.add("task--label--completed");
 }
 
 
@@ -132,11 +132,11 @@ var taskIncomplete=function(){
     console.log("Incomplete Task...");
 //Mark task as incomplete.
     //When the checkbox is unchecked
-    //Append the task list item to the #incompleteTasks.
+    //Append the task list item to the #incomplete-tasks.
     var listItem=this.parentNode;
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
-    label.classList.remove("completed-task");
+    label.classList.remove("task--label--completed");
 }
 
 
