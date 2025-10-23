@@ -24,7 +24,7 @@ var createNewTaskElement=function(taskString){
     checkBox.classList.add("checkbox");
     //label
     label=document.createElement("label");//label
-    label.classList.add("task", "task--label--hidden");
+    label.classList.add("task", "task--label--hidden", "task--label--completed");
     //input (text)
     var editInput=document.createElement("input");//text
     //button.edit
@@ -136,7 +136,6 @@ var taskIncomplete=function(){
     var listItem=this.parentNode;
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
-    label.classList.remove("task--label--completed");
 }
 
 
